@@ -12,27 +12,15 @@
 
 #include "push_swap.h"
 
-void	add_numbers_to_list(t_data *data, char *numbers)
+void	add_numbers_to_list(t_list *stack_a, char **numbers, int i)
 {
-	int	i;
-	char **nb;
-	int	numb;
-	t_data *tmp;
-
-	i = 1;
-	tmp = ft_calloc(sizeof (t_data), 1);
-	tmp->stack_a = ft_calloc(sizeof (t_list), 1);
-	nb = ft_split(numbers, ' ');
-	data->stack_a->content = ft_atoi(nb[0]);
-	while (nb[i])
+	if(numbers[i])
 	{
-		tmp->stack_a = ft_calloc(sizeof (t_list), 1);
-		numb = ft_atoi(nb[i]);
-		tmp->stack_a->content = numb;
-		data->stack_a->next = tmp->stack_a;
-		tmp->stack_a = tmp->stack_a->next;
-		data->stack_a->next
+		stack_a->content = ft_atoi(numbers[i]);
+		if(numbers[i + 1])
+			stack_a->next = ft_calloc(sizeof(t_list), 1);
 		i++;
+		add_numbers_to_list(stack_a->next, numbers, i);
 	}
 }
 
@@ -40,11 +28,11 @@ int	main(int ac, char **av)
 {
 	t_data	*data;
 	char	*numbers;
+	char 	**nb;
 	int		i;
 
 	data = ft_calloc(sizeof (t_data), 1);
-	data->stack_a = ft_calloc(sizeof (t_list), 1);
-	data->stack_b = ft_calloc(sizeof (t_list), 1);
+	data->stack_a = ft_calloc(sizeof(t_list), 1);
 	i = 1;
 	if (ac > 1)
 	{
@@ -55,13 +43,12 @@ int	main(int ac, char **av)
 			numbers = ft_strjoin(numbers, " ");
 			i++;
 		}
-		add_numbers_to_list(data, numbers);
+		nb = ft_split(numbers, ' ');
+		add_numbers_to_list(data->stack_a, nb, 0);
 	}
-	int d = 0;
 	while(data->stack_a != NULL)
 	{
 		printf("%d\n", data->stack_a->content);
 		data->stack_a = data->stack_a->next;
-		d++;
 	}
 }
