@@ -11,27 +11,3 @@
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-/*void	ft_swap(t_data *data, char *numbers, int pivot)
-{
-
-}
-
-void	quick_short(t_data *data, char *nb)
-{
-	char	**numbers;
-	int		i;
-	int		pivot;
-
-	i = 0;
-	while (numbers[data->size + 1]) {
-		data->size += 1;
-	}
-	while(numbers[i])
-	{
-		pivot = ft_atoi(numbers[data->size]);
-		ft_swap(data, numbers);
-
-	}
-
-}*/
