@@ -22,7 +22,8 @@ typedef struct s_stack
 {
 	int	*num;
 	int	size;
-	int	pivot;
+	int	maxi;
+	int	mini;
 }	t_stack;
 
 typedef struct s_data
@@ -30,7 +31,7 @@ typedef struct s_data
 	t_stack	*s_a;
 	t_stack	*s_b;
 	char	**nb;
-	char	stack;
+	int		*steps;
 }	t_data;
 
 //FUNCTION NAMES
@@ -52,10 +53,8 @@ void	rra(t_data *data, int rule);
 void	rrb(t_data *data, int rule);
 void	rrr(t_data *data);
 int		correct_sorting_check(t_stack *stack);
-void	cost_calculation(t_stack *stack, int i, int j);
-void	remove_number_size(t_data *data);
-void	min_number_push_b(t_data *data);
-int		select_pivot(t_stack *stack);
-void	quick_sort(t_data *data);
+void	choose_sort(t_data *data);
+void	calculate_steps(t_data *data);
+
 
 #endif

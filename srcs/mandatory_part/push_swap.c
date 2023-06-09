@@ -52,9 +52,7 @@ int	main(int ac, char **av)
 		}
 		data->nb = ft_split(numbers, ' ');
 		check_all(data);
-		min_number_push_b(data);
-		cost_calculation(data->s_a, 3, 2);
-		quick_sort(data);
+		choose_sort(data);
 	}
 	else
 		error_print("ARGUMENT ERROR!");

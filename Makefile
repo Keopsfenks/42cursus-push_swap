@@ -2,7 +2,8 @@ SRCS = ./srcs/mandatory_part/push_swap.c \
 		./srcs/mandatory_part/utils.c \
 		./srcs/mandatory_part/check_functions.c \
 		./srcs/mandatory_part/sorting_functions.c \
-		./srcs/mandatory_part/quick_sort.c
+		./srcs/mandatory_part/choose_sort.c \
+		./srcs/mandatory_part/calculate_steps.c
 SRCBS =
 NAME = push_swap
 CC = gcc

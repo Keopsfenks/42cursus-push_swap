@@ -47,31 +47,28 @@ void	ss(t_data *data)
 
 void	pa(t_data *data)
 {
-	int	i;
 	int	tmp;
 
-	i = 0;
-	tmp = data->s_b->num[data->s_b->size];
-	if (data->s_b->num == NULL)
-		error_print("B IS HALLOW");
-	data->s_a->size++;
-	data->s_a->num[data->s_a->size] = tmp;
+	tmp = data->s_b->num[0];
+	rb(data, 0);
 	data->s_b->size--;
+	data->s_a->size++;
+	rra(data, 0);
+	data->s_b->num[0] = tmp;
 	ft_printf("pa\n");
 }
 
 void	pb(t_data *data)
 {
-	int	i;
 	int	tmp;
 
-	i = 0;
-	tmp = data->s_a->num[data->s_a->size];
-	if (data->s_a->num == NULL)
-		error_print("A IS HALLOW");
-	data->s_b->size++;
-	data->s_b->num[data->s_b->size] = tmp;
+	tmp = data->s_a->num[0];
+	ra(data, 0);
 	data->s_a->size--;
+	data->s_b->size++;
+	if (data->s_b->size > 0)
+		rrb(data, 0);
+	data->s_b->num[0] = tmp;
 	ft_printf("pb\n");
 }
 
@@ -124,26 +121,34 @@ void	rr(t_data *data)
 
 void	rra(t_data *data, int rule)
 {
-	int	last_nb;
+	int	i;
+	int	tmp;
 
-	last_nb = data->s_a->num[data->s_a->size];
-	while (data->s_a->num[0] != last_nb)
+	tmp = data->s_a->num[data->s_a->size];
+	i = data->s_a->size;
+	while (0 < i)
 	{
-		ra(data, 0);
+		data->s_a->num[i] = data->s_a->num[i - 1];
+		i--;
 	}
+	data->s_a->num[0] = tmp;
 	if (rule == 1)
 		ft_printf("rra\n");
 }
 
 void	rrb(t_data *data, int rule)
 {
-	int	last_nb;
+	int	i;
+	int	tmp;
 
-	last_nb = data->s_b->num[data->s_b->size - 1];
-	while (data->s_b->num[0] != last_nb)
+	tmp = data->s_b->num[data->s_b->size];
+	i = data->s_b->size;
+	while (0 < i)
 	{
-		rb(data, 0);
+		data->s_b->num[i] = data->s_b->num[i - 1];
+		i--;
 	}
+	data->s_b->num[0] = tmp;
 	if (rule == 1)
 		ft_printf("rrb\n");
 }
