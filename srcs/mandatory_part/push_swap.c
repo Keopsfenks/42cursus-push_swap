@@ -53,6 +53,9 @@ int	main(int ac, char **av)
 		data->nb = ft_split(numbers, ' ');
 		check_all(data);
 		choose_sort(data);
+		for (int j = 0; j <= data->s_b->size ; ++j) {
+			printf("%d ", data->s_b->num[j]);
+		}
 	}
 	else
 		error_print("ARGUMENT ERROR!");

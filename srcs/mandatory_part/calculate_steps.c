@@ -44,21 +44,29 @@ void	bmin(t_data *data)
 	data->s_b->mini = index;
 }
 
-void	calculate_steps_mini(t_data *data, int i)
+void	calculate_steps_other(t_data *data, int i)
 {
-	if (data->s_b->mini <= data->s_b->size / 2)
+	if (data->s_b->maxi <= data->s_b->size + 1 / 2)
 	{
 		if (i <= data->s_a->size / 2)
 		{
-			printf("%d\n", data->s_a->num[i]);
-			if (data->s_b->maxi <= i + 1)
+			if (i == 0)
+			{
+				if (data->s_b->maxi > i)
+					data->steps[i] += 1;
+			}
+			else if (data->s_b->maxi <= i + 1)
 				data->steps[i] = i + 1;
 			else
 				data->steps[i] = data->s_b->maxi;
 		}
+		else
+			data->steps[i] += data->s_b->maxi;
 	}
+	else if (data->s_b->maxi > data->s_b->size + 1)
+		data->steps[i] = data->s_b->size + 1 - data->s_b->maxi;
 }
-//14 49 17 40 29 10 11 27 - 19 47
+
 void	find_cheapest(t_data *data)
 {
 	int	i;
@@ -70,8 +78,22 @@ void	find_cheapest(t_data *data)
 			data->steps[i] = i + 1;
 		else if (i > data->s_a->size / 2)
 			data->steps[i] = (data->s_a->size - i) + 2;
-		if (data->s_a->num[i] < data->s_b->num[data->s_b->mini])
-			calculate_steps_mini(data, i);
+		calculate_steps_other(data, i);
+		i++;
+	}
+}
+
+void	foundthe_cheapest(t_data *data)
+{
+	int	i;
+	int	index;
+
+	i = 0;
+	index = 1;
+	while (i <= data->s_a->size)
+	{
+		if (data->steps[index] > data->steps[i])
+			data->moveindex = index;
 		i++;
 	}
 }
@@ -81,8 +103,5 @@ void	calculate_steps(t_data *data)
 	bmax(data);
 	bmin(data);
 	find_cheapest(data);
-	for (int i = 0; i <= data->s_a->size; ++i) {
-		printf("%d - %d\n", data->s_a->num[i], data->steps[i]);
-	}
-	printf("----\n");
+	foundthe_cheapest(data);
 }

@@ -30,6 +30,7 @@ typedef struct s_data
 {
 	t_stack	*s_a;
 	t_stack	*s_b;
+	int		moveindex;
 	char	**nb;
 	int		*steps;
 }	t_data;
@@ -55,6 +56,7 @@ void	rrr(t_data *data);
 int		correct_sorting_check(t_stack *stack);
 void	choose_sort(t_data *data);
 void	calculate_steps(t_data *data);
+void	ft_start(t_data *data);
 
 
 #endif

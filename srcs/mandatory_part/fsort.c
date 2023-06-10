@@ -1,34 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   choose_sort.c                                      :+:      :+:    :+:   */
+/*   fsort.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: segurbuz <segurbuz@student.42istanb>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/09 21:48:39 by segurbuz          #+#    #+#             */
-/*   Updated: 2023/06/09 21:48:41 by segurbuz         ###   ########.fr       */
+/*   Created: 2023/06/10 04:52:07 by segurbuz          #+#    #+#             */
+/*   Updated: 2023/06/10 04:52:09 by segurbuz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	fsort(t_data *data)
+void	ft_start(t_data *data)
 {
-	int	i;
 
-	i = 0;
-	data->steps = ft_calloc(sizeof(int), data->s_a->size);
-	pb(data);
-	pb(data);
-	while (i <= data->s_a->size)
-	{
-		calculate_steps(data);
-		ft_start(data);
-		i++;
-	}
-}
-
-void	choose_sort(t_data *data)
-{
-	fsort(data);
 }
