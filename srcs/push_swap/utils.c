@@ -5,34 +5,20 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: segurbuz <segurbuz@student.42istanb>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/15 23:08:26 by segurbuz          #+#    #+#             */
-/*   Updated: 2023/04/16 21:30:03 by segurbuz         ###   ########.fr       */
+/*   Created: 2023/06/16 20:27:53 by segurbuz          #+#    #+#             */
+/*   Updated: 2023/06/16 21:58:07 by segurbuz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	error_print(char *str)
+void	error(void)
 {
-	ft_printf("%s\n", str);
+	write(1, "Error\n", 6);
 	exit(1);
 }
 
-char	*copy_next(char *dst, char *src)
-{
-	size_t	i;
-
-	i = -1;
-	if ((ft_strlen(src) + 1) != 0)
-	{
-		while (src[++i] && i < ((ft_strlen(src) + 1) - 1))
-			dst[i] = src[i];
-		dst[i] = '\0';
-	}
-	return (dst);
-}
-
-char	*copy(char *s1, char *s2)
+char	*ps_strjoin(char *s1, char *s2)
 {
 	char	*ptr;
 	size_t	i;
@@ -51,12 +37,12 @@ char	*copy(char *s1, char *s2)
 		ptr[i] = s1[i];
 		i++;
 	}
-	copy_next(ptr + i, s2);
+	ft_strlcpy(ptr + i, s2, (ft_strlen(s2) + 1));
 	free (s1);
 	return (ptr);
 }
 
-int	min_and_max_check_atoi(const char *str)
+int	ps_atoi(const char *str)
 {
 	long	result;
 	int		sign;
@@ -76,25 +62,40 @@ int	min_and_max_check_atoi(const char *str)
 	{
 		result = result * 10 + (str[i] - 48) * sign;
 		if (result > 2147483647 || result < -2147483648)
-			error_print("TAKES A MAXIMUM OR MINIMUM VALUE!");
+			error();
 		i++;
 	}
 	return ((int)result);
 }
 
-int	correct_sorting_check(t_stack *stack)
+void	minb(t_data *data)
 {
 	int	i;
-	int	count;
+	int	index;
 
-	i = 0;
-	count = 0;
-	while (i <= stack->size)
+	i = 1;
+	index = 0;
+	while (i <= data->b->size)
 	{
-		if (stack->num[i] > stack->num[i + 1])
-			return (1);
+		if (data->b->num[index] > data->b->num[i])
+			index = i;
 		i++;
 	}
-	error_print("SORTED CORRECTLY!");
-	return (0);
+	data->b->mini = index;
+}
+
+void	maxb(t_data *data)
+{
+	int	i;
+	int	index;
+
+	i = 1;
+	index = 0;
+	while (i <= data->b->size)
+	{
+		if (data->b->num[index] < data->b->num[i])
+			index = i;
+		i++;
+	}
+	data->b->maxi = index;
 }

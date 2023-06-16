@@ -1,34 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   choose_sort.c                                      :+:      :+:    :+:   */
+/*   ft_sort.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: segurbuz <segurbuz@student.42istanb>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/09 21:48:39 by segurbuz          #+#    #+#             */
-/*   Updated: 2023/06/09 21:48:41 by segurbuz         ###   ########.fr       */
+/*   Created: 2023/06/16 21:50:13 by segurbuz          #+#    #+#             */
+/*   Updated: 2023/06/16 21:50:26 by segurbuz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	fsort(t_data *data)
+void	calculate_steps(t_data *data)
 {
 	int	i;
+	int	nbr_i;
 
-	i = 0;
-	data->steps = ft_calloc(sizeof(int), data->s_a->size);
-	pb(data);
-	pb(data);
-	while (i <= data->s_a->size)
+	i = -1;
+
+	while (++i < data->a->size)
 	{
-		calculate_steps(data);
-		ft_start(data);
-		i++;
+
 	}
 }
-
-void	choose_sort(t_data *data)
+static void	find_cheapest(t_data *data)
 {
-	fsort(data);
+	maxb(data);
+	minb(data);
+	calculate_steps(data);
+}
+
+void	ft_sort(t_data *data)
+{
+	data->steps = malloc(sizeof(int) * data->a->size);
+	pb(data);
+	pb(data);
+	while (0 < data->a->size)
+	{
+		find_cheapest(data);
+	}
 }

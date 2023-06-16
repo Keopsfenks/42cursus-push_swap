@@ -1,29 +1,27 @@
-SRCS = ./srcs/mandatory_part/push_swap.c \
-		./srcs/mandatory_part/utils.c \
-		./srcs/mandatory_part/check_functions.c \
-		./srcs/mandatory_part/sorting_functions.c \
-		./srcs/mandatory_part/choose_sort.c \
-		./srcs/mandatory_part/calculate_steps.c \
-		./srcs/mandatory_part/fsort.c
+SRCS = ./srcs/push_swap/push_swap.c \
+		./srcs/push_swap/control_functions.c \
+		./srcs/push_swap/utils.c \
+		./srcs/push_swap/five_sort.c \
+		./srcs/push_swap/sort_functions.c \
+		./srcs/push_swap/ft_sort.c
 SRCBS =
 NAME = push_swap
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
-FT_PRINTF = ./srcs/libary/ft_printf/libftprintf.a
 FT_LIBFT = ./srcs/libary/ft_libft/libft.a
 RM = rm -rf
 
 all: $(MLX) $(NAME)
 
-$(NAME): $(SRCS) $(FT_PRINTF) $(FT_LIBFT)
-	@gcc $(CFLAGS) $(SRCS) $(FT_PRINTF) $(FT_LIBFT) -o $(NAME)
+$(NAME): $(SRCS) $(FT_LIBFT)
+	@gcc $(CFLAGS) $(SRCS) $(FT_LIBFT) -o $(NAME)
 	@echo "************************"
 	@echo "   PUSH SWAP CREATED"
 	@echo "************************"
 
 
 bonus : $(SRCBS) $(FT_PRINTF) $(FT_LIBFT)
-	@gcc $(CFLAGS) $(SRCBS) $(FT_PRINTF) $(FT_LIBFT) -o $(NAME)
+	@gcc $(CFLAGS) $(SRCBS) $(FT_LIBFT) -o $(NAME)
 	@echo "************************"
 	@echo "    CHECKER CREATED"
 	@echo "************************"
