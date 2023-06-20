@@ -24,6 +24,9 @@ int	main(int ac, char **av)
 			five_sort(data);
 		else
 			ft_sort(data);
+		for (int i = 0; i < data->b->size; ++i) {
+			printf("%d ", data->b->num[i]);
+		}
 	}
 	else
 		return (0);

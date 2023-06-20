@@ -6,7 +6,7 @@
 /*   By: segurbuz <segurbuz@student.42istanb>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/16 19:59:20 by segurbuz          #+#    #+#             */
-/*   Updated: 2023/06/16 21:09:36 by segurbuz         ###   ########.fr       */
+/*   Updated: 2023/06/20 04:58:36 by segurbuz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,16 +84,16 @@ int	is_duplicated(t_data *data, char **num)
 	return (0);
 }
 
-int	is_sorted(t_data *data)
+int	is_sorted(t_stack *stack)
 {
 	int	i;
 	int	result;
 
 	i = 0;
 	result = 1;
-	while (i < data->a->size - 1)
+	while (i < stack->size - 1)
 	{
-		if (data->a->num[i] > data->a->num[i + 1])
+		if (stack->num[i] > stack->num[i + 1])
 		{
 			result = 0;
 			break ;
@@ -114,7 +114,7 @@ void	ft_parse(t_data *data, int ac, char **av)
 	is_duplicated(data, num);
 	while (++i < data->a->size)
 		data->a->num[i] = ps_atoi(num[i]);
-	if (is_sorted(data))
+	if (is_sorted(data->a))
 		exit(1);
 }
 
