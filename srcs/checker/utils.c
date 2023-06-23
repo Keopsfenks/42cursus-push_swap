@@ -57,6 +57,8 @@ int	ps_atoi(const char *str)
 	{
 		if (str[i++] == '-')
 			sign *= -1;
+		if (!(str[i] >= '0' && str[i] <= '9'))
+			error();
 	}
 	while (str[i] >= '0' && str[i] <= '9' && str[i])
 	{
@@ -68,16 +70,13 @@ int	ps_atoi(const char *str)
 	return ((int)result);
 }
 
-void	ft_exit_free_all(t_data *data, char c)
+void	ft_exit_free_all(char c)
 {
-	free(data->a);
-	free(data->b);
-	free(data);
 	if (c == 'o')
 		write(1, "OK\n", 3);
 	else if (c == 'k')
 		write(1, "KO\n", 3);
 	else if (c == 'e')
-		write(2, "Error\n", 6);
+		error();
 	exit(0);
 }

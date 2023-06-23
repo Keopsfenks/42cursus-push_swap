@@ -116,4 +116,3 @@ void	ft_parse(t_data *data, int ac, char **av)
 	if (is_sorted(data->a))
 		exit(1);
 }
-

@@ -6,7 +6,7 @@
 /*   By: segurbuz <segurbuz@student.42istanb>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/16 19:52:09 by segurbuz          #+#    #+#             */
-/*   Updated: 2023/06/16 19:55:15 by segurbuz         ###   ########.fr       */
+/*   Updated: 2023/06/23 06:57:19 by segurbuz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void	ft_rotate(t_data *data)
 	}
 }
 
-static void	ft_sort(t_data *data)
+void	ft_sorts(t_data *data)
 {
 	data->steps = ft_calloc(sizeof(int), data->a->size);
 	pb(data);
@@ -55,11 +55,11 @@ int	main(int ac, char **av)
 	data = ft_calloc(sizeof(t_data), 1);
 	if (ac > 1)
 	{
-		ft_parse(data, ac, av); //leak var
+		ft_parse(data, ac, av);
 		if (data->a->size < 6)
 			five_sort(data);
 		else
-			ft_sort(data);
+			ft_sorts(data);
 	}
 	else
 		return (0);

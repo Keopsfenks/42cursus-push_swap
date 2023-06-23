@@ -42,14 +42,14 @@ int	find_number(t_stack *stack, int nbr)
 	return (-1);
 }
 
-int	max_position(t_stack *stack, int *positon)
+int	max_position(t_stack *stack, int *positon, int ind)
 {
 	int	i;
 	int	index;
 
 	i = 1;
 	index = 0;
-	while (i <= stack->size)
+	while (i < ind)
 	{
 		if (positon[index] < positon[i])
 			index = i;
@@ -75,7 +75,7 @@ int	find_the_position_number(t_stack *stack, int anum)
 			index++;
 		}
 	}
-	index = max_position(stack, position);
+	index = max_position(stack, position, index);
 	free(position);
 	return (index);
 }

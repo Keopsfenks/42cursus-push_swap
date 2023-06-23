@@ -36,7 +36,7 @@ int		ps_atoi(const char *str);
 void	error(void);
 void	ft_parse(t_data *data, int ac, char **av);
 int		is_sorted(t_stack *stack);
-void	ft_exit_free_all(t_data *data, char c);
+void	ft_exit_free_all(char c);
 void	sa(t_data *data);
 void	sb(t_data *data);
 void	ss(t_data *data);
@@ -48,6 +48,4 @@ void	rrb(t_data *data);
 void	rrr(t_data *data);
 void	pa(t_data *data);
 void	pb(t_data *data);
-
-
 #endif

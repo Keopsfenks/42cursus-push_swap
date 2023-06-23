@@ -12,39 +12,6 @@
 
 #include "push_swap.h"
 
-void	sa(t_data *data, int rule)
-{
-	int	tmp;
-	int	i;
-
-	i = 0;
-	tmp = data->a->num[0];
-	data->a->num[0] = data->a->num[1];
-	data->a->num[1] = tmp;
-	if (rule == 1)
-		write(1, "sa\n", 3);
-}
-
-void	sb(t_data *data, int rule)
-{
-	int	tmp;
-	int	i;
-
-	i = 0;
-	tmp = data->b->num[0];
-	data->b->num[0] = data->b->num[1];
-	data->b->num[1] = tmp;
-	if (rule == 1)
-		write(1, "sb\n", 3);
-}
-
-void	ss(t_data *data)
-{
-	sa(data, 0);
-	sb(data, 0);
-	write(1, "ss\n", 3);
-}
-
 void	pa(t_data *data)
 {
 	int	tmp;
@@ -71,53 +38,6 @@ void	pb(t_data *data)
 		rrb(data, 0);
 	data->b->num[0] = tmp;
 	write(1, "pb\n", 3);
-}
-
-void	ra(t_data *data, int rule)
-{
-	int	i;
-	int	tmp;
-	int	first_nb;
-
-	i = 0;
-	first_nb = data->a->num[0];
-	while (i < data->a->size)
-	{
-		tmp = data->a->num[i];
-		data->a->num[i] = data->a->num[i + 1];
-		data->a->num[i + 1] = tmp;
-		i++;
-	}
-	data->a->num[data->a->size - 1] = first_nb;
-	if (rule == 1)
-		write(1, "ra\n", 3);
-}
-
-void	rb(t_data *data, int rule)
-{
-	int	i;
-	int	tmp;
-	int	first_nb;
-
-	i = 0;
-	first_nb = data->b->num[0];
-	while (i < data->b->size)
-	{
-		tmp = data->b->num[i];
-		data->b->num[i] = data->b->num[i + 1];
-		data->b->num[i + 1] = tmp;
-		i++;
-	}
-	data->b->num[data->b->size - 1] = first_nb;
-	if (rule == 1)
-		write(1, "rb\n", 3);
-}
-
-void	rr(t_data *data)
-{
-	ra(data, 0);
-	rb(data, 0);
-	write(1, "rr\n", 3);
 }
 
 void	rra(t_data *data, int rule)

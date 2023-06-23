@@ -14,6 +14,7 @@
 # define PUSH_SWAP_H
 
 # include "../libary/ft_libft/libft.h"
+# include "stdio.h"
 
 typedef struct s_stack
 {
@@ -61,6 +62,4 @@ void	ft_rotate_m3(t_data *data);
 void	ft_rotate_o(t_data *data);
 void	ft_rotate_o2(t_data *data);
 void	ft_rotate_o3(t_data *data);
-
-
 #endif

@@ -15,7 +15,7 @@
 void	ft_rotate_m(t_data *data)
 {
 	int	nbri;
-	
+
 	nbri = min_stack(data->b);
 	if (data->cheapest == data->a->size - 1
 		&& nbri == data->b->size -1
