@@ -5,18 +5,12 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: segurbuz <segurbuz@student.42istanb>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/16 20:27:53 by segurbuz          #+#    #+#             */
-/*   Updated: 2023/06/21 15:07:10 by segurbuz         ###   ########.fr       */
+/*   Created: 2023/06/23 06:32:09 by segurbuz          #+#    #+#             */
+/*   Updated: 2023/06/23 06:39:11 by segurbuz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
-
-void	error(void)
-{
-	write(1, "Error\n", 6);
-	exit(1);
-}
+#include "checker.h"
 
 char	*ps_strjoin(char *s1, char *s2)
 {
@@ -40,6 +34,12 @@ char	*ps_strjoin(char *s1, char *s2)
 	ft_strlcpy(ptr + i, s2, (ft_strlen(s2) + 1));
 	free (s1);
 	return (ptr);
+}
+
+void	error(void)
+{
+	write(1, "Error\n", 6);
+	exit(1);
 }
 
 int	ps_atoi(const char *str)
@@ -68,19 +68,16 @@ int	ps_atoi(const char *str)
 	return ((int)result);
 }
 
-int	min_stack(t_stack *stack)
+void	ft_exit_free_all(t_data *data, char c)
 {
-	int	i;
-	int	index;
-
-	i = 1;
-	index = 0;
-	while (i < stack->size)
-	{
-		if (stack->num[index] > stack->num[i])
-			index = i;
-		i++;
-	}
-	stack->mini = index;
-	return (index);
+	free(data->a);
+	free(data->b);
+	free(data);
+	if (c == 'o')
+		write(1, "OK\n", 3);
+	else if (c == 'k')
+		write(1, "KO\n", 3);
+	else if (c == 'e')
+		write(2, "Error\n", 6);
+	exit(0);
 }

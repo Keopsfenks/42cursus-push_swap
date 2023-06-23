@@ -6,7 +6,7 @@
 /*   By: segurbuz <segurbuz@student.42istanb>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/23 00:54:10 by segurbuz          #+#    #+#             */
-/*   Updated: 2023/06/23 00:55:01 by segurbuz         ###   ########.fr       */
+/*   Updated: 2023/06/23 06:08:38 by segurbuz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,6 @@ void	ft_rotate_m(t_data *data)
 	int	nbri;
 	
 	nbri = min_stack(data->b);
-	data->boole = 1;
-	data->boole1 = 1;
 	if (data->cheapest == data->a->size - 1
 		&& nbri == data->b->size -1
 		&& data->cheapest > 1)

@@ -15,7 +15,6 @@
 char	**add_numbersto_int(t_data *data, int ac, char **av)
 {
 	char	*str;
-	char	**split;
 	int		i;
 
 	i = 1;
@@ -28,14 +27,15 @@ char	**add_numbersto_int(t_data *data, int ac, char **av)
 		i++;
 	}
 	i = 0;
-	split = ft_split(str, ' ');
-	while (split[i])
+	data->num = ft_split(str, ' ');
+	while (data->num[i])
 		i++;
 	data->a->size = i;
 	data->b->size = 0;
 	data->a->num = malloc(sizeof(int) * data->a->size);
 	data->b->num = malloc(sizeof(int) * data->a->size);
-	return (split);
+	free(str);
+	return (data->num);
 }
 
 void	other_than_numbers(char **num)
