@@ -6,7 +6,7 @@
 /*   By: segurbuz <segurbuz@student.42istanb>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/16 20:27:53 by segurbuz          #+#    #+#             */
-/*   Updated: 2023/06/20 02:15:35 by segurbuz         ###   ########.fr       */
+/*   Updated: 2023/06/21 15:07:10 by segurbuz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,115 +75,12 @@ int	min_stack(t_stack *stack)
 
 	i = 1;
 	index = 0;
-	while (i <= stack->size)
+	while (i < stack->size)
 	{
 		if (stack->num[index] > stack->num[i])
 			index = i;
 		i++;
 	}
 	stack->mini = index;
-	return (index);
-}
-
-int	max_stack(t_stack *stack)
-{
-	int	i;
-	int	index;
-
-	i = 1;
-	index = 0;
-	while (i <= stack->size)
-	{
-		if (stack->num[index] < stack->num[i])
-			index = i;
-		i++;
-	}
-	stack->maxi = index;
-	return (index);
-}
-
-int	find_the_spot(t_stack *stack, int a)
-{
-	int	i;
-	int	biggest_small;
-
-	i = -1;
-	biggest_small = min_stack(stack);
-	while (++i < stack->size)
-	{
-		if (stack->num[i] < a)
-		{
-			if (stack->num[i] >= stack->num[biggest_small])
-				biggest_small = i;
-		}
-	}
-	if (a < stack->num[min_stack(stack)])
-		return (min_stack(stack));
-	return (biggest_small);
-}
-
-void	stack_moves_a(t_data *data, t_sort *calc, int i)
-{
-	if (i <= data->a->size / 2)
-		calc->a = i;
-	else if (i > data->a->size / 2)
-		calc->ar = data->a->size - i;
-}
-
-void	stack_moves_a_2(t_data *data, t_sort *calc, int i)
-{
-	if (i <= data->a->size / 2)
-		calc->a++;
-	else if (i > data->a->size / 2)
-		calc->ar++;
-}
-
-void	stack_moves_b(t_data *data, t_sort *calc, int i)
-{
-	if (i <= data->a->size / 2)
-		calc->b = i;
-	else if (i > data->a->size / 2)
-		calc->br = data->a->size - i;
-}
-
-void	stack_moves_b_2(t_data *data, t_sort *calc, int i)
-{
-	if (i <= data->b->size / 2)
-		calc->b++;
-	else if (i > data->b->size / 2)
-		calc->br++;
-}
-
-int	stack_moves_i(t_stack *stack, int i)
-{
-	if (i <= stack->size / 2)
-		return (i);
-	else if (i > stack->size / 2)
-		return (stack->size - i);
-	return (0);
-}
-
-void	moves_init(t_sort *calc)
-{
-	calc->a = 0;
-	calc->b = 0;
-	calc->ar = 0;
-	calc->br = 0;
-}
-
-int	take_cheapest(t_data *data)
-{
-	int	i;
-	int	index;
-
-	i = 0;
-	index = 0;
-	while (i < data->a->size)
-	{
-		if (data->steps[i] < data->steps[index])
-			index = i;
-		i++;
-	}
-	data->cheapest = index;
 	return (index);
 }

@@ -6,7 +6,7 @@
 /*   By: segurbuz <segurbuz@student.42istanb>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/16 21:17:16 by segurbuz          #+#    #+#             */
-/*   Updated: 2023/06/16 21:20:04 by segurbuz         ###   ########.fr       */
+/*   Updated: 2023/06/21 15:09:34 by segurbuz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -126,7 +126,7 @@ void	rra(t_data *data, int rule)
 	int	tmp;
 
 	tmp = data->a->num[data->a->size - 1];
-	i = data->a->size;
+	i = data->a->size - 1;
 	while (0 < i)
 	{
 		data->a->num[i] = data->a->num[i - 1];
@@ -143,7 +143,7 @@ void	rrb(t_data *data, int rule)
 	int	tmp;
 
 	tmp = data->b->num[data->b->size - 1];
-	i = data->b->size;
+	i = data->b->size - 1;
 	while (0 < i)
 	{
 		data->b->num[i] = data->b->num[i - 1];

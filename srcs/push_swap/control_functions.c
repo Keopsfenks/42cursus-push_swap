@@ -21,7 +21,6 @@ char	**add_numbersto_int(t_data *data, int ac, char **av)
 	i = 1;
 	data->a = ft_calloc(sizeof(t_stack), 1);
 	data->b = ft_calloc(sizeof(t_stack), 1);
-	str = ft_strdup("");
 	while (i < ac)
 	{
 		str = ps_strjoin(str, av[i]);

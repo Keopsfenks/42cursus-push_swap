@@ -1,14 +1,19 @@
 SRCS = ./srcs/push_swap/push_swap.c \
 		./srcs/push_swap/control_functions.c \
 		./srcs/push_swap/utils.c \
+		./srcs/push_swap/utils_2.c \
 		./srcs/push_swap/five_sort.c \
 		./srcs/push_swap/sort_functions.c \
-		./srcs/push_swap/ft_sort.c
+		./srcs/push_swap/ft_sort.c \
+		./srcs/push_swap/ft_sortm.c \
+		./srcs/push_swap/ft_sorto.c \
+		./srcs/push_swap/calculate_steps.c
 SRCBS =
 NAME = push_swap
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 FT_LIBFT = ./srcs/libary/ft_libft/libft.a
+FT_GET_NEXT_LINE = ./srcs/lib
 RM = rm -rf
 
 all: $(MLX) $(NAME)
