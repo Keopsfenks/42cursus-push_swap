@@ -57,8 +57,6 @@ int	ps_atoi(const char *str)
 	{
 		if (str[i++] == '-')
 			sign *= -1;
-		if (!(str[i] >= '0' && str[i] <= '9'))
-			error();
 	}
 	while (str[i] >= '0' && str[i] <= '9' && str[i])
 	{
@@ -67,6 +65,8 @@ int	ps_atoi(const char *str)
 			error();
 		i++;
 	}
+	if (str[i] == '-' || str[i] == '+')
+		error();
 	return ((int)result);
 }
 

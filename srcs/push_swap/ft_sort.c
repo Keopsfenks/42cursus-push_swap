@@ -6,7 +6,7 @@
 /*   By: segurbuz <segurbuz@student.42istanb>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/16 21:50:13 by segurbuz          #+#    #+#             */
-/*   Updated: 2023/06/22 23:03:03 by segurbuz         ###   ########.fr       */
+/*   Updated: 2023/07/03 17:41:57 by segurbuz         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,8 @@ void	ft_start(t_data *data)
 				break ;
 			ft_min_sort(data);
 		}
+		rb(data, 1);
 		pb(data);
-		sb(data, 1);
 	}
 	else
 	{
